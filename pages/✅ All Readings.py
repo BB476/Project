@@ -1,9 +1,8 @@
 import gspread
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import altair as alt
+from gspread_pandas import Spread,Client
+from google.oauth2 import service_account
 
 
 st.set_page_config(
@@ -11,8 +10,16 @@ st.set_page_config(
     page_icon="✅",
     layout='wide', )
 st.title("All Previously Recorded Data")
-sa = gspread.service_account(st.secrets["gspread.service_account"])
-sh = sa.open("CapStone")
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+
+credentials = service_account.Credentials.from_service_account_info(
+                st.secrets["gcp_service_account"], scopes = scope)
+client = Client(scope=scope,creds=credentials)
+spreadsheetname = "CapStone"
+spread = Spread(spreadsheetname,client = client)
+sh = client.open("CapStone")
+
 wks= sh.worksheet("Sheet1")
 df = pd.DataFrame(wks.get_all_records())
 df.set_index("date")
