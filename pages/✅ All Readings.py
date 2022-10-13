@@ -11,7 +11,7 @@ st.set_page_config(
     page_icon="✅",
     layout='wide', )
 st.title("All Previously Recorded Data")
-sa = gspread.service_account(st.secrets[gspread.service_account])
+sa = gspread.service_account(st.secrets["gspread.service_account"])
 sh = sa.open("CapStone")
 wks= sh.worksheet("Sheet1")
 df = pd.DataFrame(wks.get_all_records())
