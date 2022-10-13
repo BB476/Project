@@ -22,7 +22,7 @@ sh = client.open("CapStone")
 
 wks= sh.worksheet("Sheet1")
 df = pd.DataFrame(wks.get_all_records())
-df.set_index("date")
+df.set_index(['date'], inplace=True)
 
 
 
