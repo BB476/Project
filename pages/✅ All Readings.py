@@ -36,7 +36,6 @@ datas = df[choice + ["Date"]]
 
 # plotting the choice on a line chart
 st.line_chart(datas, x="Date", y=choice)
-st.dataframe(df)
 
 # success message after every rerun/run
 st.success("Renewed All Data")
@@ -46,6 +45,10 @@ col1, col2, col3 = st.columns(3)
 if col2.button(label="Click Here To Refresh"):
     st.experimental_rerun()
 
+st.title("Full Table:")
+#view data in table
+st.dataframe(df, width= int("2000"), height=int("500"))
+
 # hiding the streamlit watermark
 hide_streamlit_style = """
             <style>
@@ -54,3 +57,5 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+# making teh last row dataframe
+lastrow = df.iloc[-1:]
