@@ -6,7 +6,7 @@ st.set_page_config(
     page_icon="🏠",
     layout="centered",
 )
-st.title("**-projectname- v0.1**")
+st.title("**-projectname- v0.2**")
 st.text("This website was made by Group (), Ismailia stem school, 2022/2023 ")
 st.text("Use the sidebar to navigate")
 st.text("This project is aimed to help in reducing the effects of climate change ")
