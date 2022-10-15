@@ -52,9 +52,13 @@ st.dataframe(df3, width=2000, height=100)
 average = df.tail(7)
 average.drop(columns=average.columns[0], axis=1, inplace=True)
 df2 = average.mean(axis=0)
-
 st.title("Last 7 days average:")
 st.dataframe(df2, width=2000, height=100)
+
+# reload button
+col1, col2, col3 = st.columns(3)
+if col2.button(label="Click Here To Refresh"):
+    st.experimental_rerun()
 
 # hiding streamlit watermark
 hide_streamlit_style = """
