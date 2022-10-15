@@ -10,12 +10,12 @@ from google.oauth2 import service_account
 st.set_page_config(
     page_title="Latest Reading",
     page_icon="🕐",
-    layout = "wide"
+    layout="wide"
 )
 
-st.title("Here you can view the latest data recorded:")
+st.title("latest data:")
 
-#fetching data from google sheets
+# fetching data from google sheets
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 credentials = service_account.Credentials.from_service_account_info(
@@ -31,7 +31,7 @@ df = pd.DataFrame(wks.get_all_records())
 
 # Viewing last row
 lastrow = df.iloc[-1:]
-st.dataframe(lastrow, width= int("2000"), height = int("50"))
+st.dataframe(lastrow, width=int("2000"), height=int("50"))
 
 # success message after every rerun/run
 st.success("Renewed All Data")
@@ -40,6 +40,21 @@ st.success("Renewed All Data")
 col1, col2, col3 = st.columns(3)
 if col2.button(label="Click Here To Refresh"):
     st.experimental_rerun()
+
+# last 3 days average
+average3 = df.tail(3)
+average3.drop(columns=average3.columns[0], axis=1, inplace=True)
+df3 = average3.mean(axis=0)
+st.title("Last 3 days average:")
+st.dataframe(df3, width=2000, height=100)
+
+# last 7 days average
+average = df.tail(7)
+average.drop(columns=average.columns[0], axis=1, inplace=True)
+df2 = average.mean(axis=0)
+
+st.title("Last 7 days average:")
+st.dataframe(df2, width=2000, height=100)
 
 # hiding streamlit watermark
 hide_streamlit_style = """
