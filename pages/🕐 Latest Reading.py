@@ -56,8 +56,8 @@ st.title("Last 7 days average:")
 st.dataframe(df2, width=2000, height=100)
 
 # reload button
-col1, col2, col3 = st.columns(3)
-if col2.button(label="Click Here To Refresh"):
+col4, col5, col6 = st.columns2(3)
+if col5.button(label="Click Here To Refresh"):
     st.experimental_rerun()
 
 # hiding streamlit watermark
