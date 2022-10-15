@@ -57,7 +57,7 @@ st.dataframe(df2, width=2000, height=100)
 
 # reload button
 col4, col5, col6 = st.columns(3)
-if col5.button(label="Click Here To Refresh"):
+if col5.button(label="Click Here To Refresh", key = "as"):
     st.experimental_rerun()
 
 # hiding streamlit watermark
