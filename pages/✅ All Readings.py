@@ -11,7 +11,7 @@ st.set_page_config(
     page_title="All Readings",
     page_icon="✅",
     layout='wide', )
-st.title("All Previously Recorded Data")
+st.title("Previously Recorded Data")
 
 # importing the Google sheet
 scope = ['https://spreadsheets.google.com/feeds',
