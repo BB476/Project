@@ -21,9 +21,9 @@ scope = ['https://spreadsheets.google.com/feeds',
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"], scopes=scope)
 client = Client(scope=scope, creds=credentials)
-spreadsheetname = "CapStone"
+spreadsheetname = "yarab"
 spread = Spread(spreadsheetname, client=client)
-sh = client.open("CapStone")
+sh = client.open("yarab")
 wks = sh.worksheet("Sheet1")
 
 # creating a df from sheet
