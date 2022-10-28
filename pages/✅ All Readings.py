@@ -19,9 +19,9 @@ scope = ['https://spreadsheets.google.com/feeds',
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"], scopes=scope)
 client = Client(scope=scope, creds=credentials)
-spreadsheetname = "CapStone"
+spreadsheetname = "yarab"
 spread = Spread(spreadsheetname, client=client)
-sh = client.open("CapStone")
+sh = client.open("yarab")
 wks = sh.worksheet("Sheet1")
 
 # creating a pandas dataframe using the Google sheet
@@ -30,7 +30,7 @@ df = pd.DataFrame(wks.get_all_records())
 # making the part where the user chooses which data to view
 cols = df.columns.tolist()
 cols.remove("Date")
-choice = st.multiselect("Choose Data type", cols, default="Temperature")
+choice = st.multiselect("Choose Data type", cols, default="Temperature(°C)")
 datas = df[choice + ["Date"]]
 
 
