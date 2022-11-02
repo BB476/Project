@@ -1,7 +1,6 @@
 
 # importing libraries
 import gspread
-import pandas
 import streamlit as st
 import pandas as pd
 from gspread_pandas import Spread, Client
