@@ -7,7 +7,7 @@ from gspread_pandas import Spread, Client
 from google.oauth2 import service_account
 # setting page config
 st.set_page_config(
-    page_title="All Readings",
+    page_title="All Read()ings",
     page_icon="✅",
     layout='wide', )
 st.title("Previously Recorded Data")
