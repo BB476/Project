@@ -5,6 +5,7 @@ import pandas
 import pandas as pd
 from gspread_pandas import Spread, Client
 from google.oauth2 import service_account
+import smtplib, ssl
 
 # setting page config
 st.set_page_config(
@@ -68,3 +69,24 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+#sending the warning by email
+port = 587  # For starttls
+smtp_server = "smtp.gmail.com"
+sender_email = "ammar25257@gmail.com"
+receiver_email = "ammar25257@gmail.com"
+password = "@ammar25257@gmail.com"
+message = """\
+Subject: Altert regarding the state of Hypericum Sinaicum
+
+An alarming rise in temperature and humidty was detected, Taking the required actions in preserving the species is urgent"""
+temp_last = df.iloc[0, df.columns.get_loc('Temperature(°C)')]
+Humid_last = df.iloc[0, df.columns.get_loc('Humidity(%)')]
+context = ssl.create_default_context()
+if temp_last > 45 and Humid_last > 60:
+ with smtplib.SMTP(smtp_server, port) as server:
+    server.ehlo()  # Can be omitted
+    server.starttls(context=context)
+    server.ehlo()  # Can be omitted
+    server.login(sender_email, password)
+    server.sendmail(sender_email, receiver_email, message)
