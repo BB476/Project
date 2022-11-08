@@ -47,6 +47,21 @@ if col2.button(label="Click Here To Refresh"):
 st.title("Full Table:")
 #view data in table
 st.dataframe(df, width= int("2000"), height=int("500"))
+@st.experimental_memo
+def convert_df(df):
+   return df.to_csv(index=False).encode('utf-8')
+
+
+csv = convert_df(df)
+
+col11, col22, col33 = st.columns(3)
+col22.download_button(
+   "Press to Download",
+   csv,
+   "file.csv",
+   "text/csv",
+   key='download-csv'
+)
 
 # hiding the streamlit watermark
 hide_streamlit_style = """
