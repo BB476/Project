@@ -1,10 +1,10 @@
 
 # importing libraries
-import gspread
 import streamlit as st
 import pandas as pd
 from gspread_pandas import Spread, Client
 from google.oauth2 import service_account
+
 # setting page config
 st.set_page_config(
     page_title="All Readings",
@@ -45,13 +45,14 @@ if col2.button(label="Click Here To Refresh"):
     st.experimental_rerun()
 
 st.title("Full Table:")
+
 #view data in table
 st.dataframe(df, width= int("2000"), height=int("500"))
 @st.experimental_memo
 def convert_df(df):
    return df.to_csv(index=False).encode('utf-8')
 
-
+#Download button for table
 csv = convert_df(df)
 
 col11, col22, col33 = st.columns(3)
@@ -71,5 +72,5 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-# making teh last row dataframe
-lastrow = df.iloc[-1:]
+
+

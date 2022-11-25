@@ -1,12 +1,9 @@
 # importing libraries
 import streamlit as st
-import gspread
-import pandas
 import pandas as pd
 from gspread_pandas import Spread, Client
 from google.oauth2 import service_account
-import smtplib, ssl
-from email.message import EmailMessage
+
 
 # setting page config
 st.set_page_config(
@@ -40,7 +37,6 @@ col11.metric(label="Temperature", value= temp_last2 + "°C")
 col22.metric(label= "Humidity", value= Humid_last2 + "%")
 
 # warning for high temp and humidity
-
 temp22 = int(temp_last)
 humid22 = int(Humid_last)
 if temp22 > 45 and humid22 > 60:
@@ -71,7 +67,6 @@ temp_last_7_avg = df.iloc[-1, 1]
 temp_last_7_avg_2 = str(temp_last_7_avg)
 Humid_last_7_avg = df.iloc[-1, 2]
 Humid_last_7_avg_2 = str(Humid_last_7_avg)
-
 
 # Viewing last 7 days average
 col1111, col2222 = st.columns(2)
