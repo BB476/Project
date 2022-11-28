@@ -46,9 +46,9 @@ if temp22 > 45 or humid22 > 60:
 average3 = df.tail(3)
 average3.drop(columns=average3.columns[0], axis=1, inplace=True)
 df3 = average3.mean(axis=0)
-temp_last_3_avg = df.iloc[-1, 1]
+temp_last_3_avg = df3.iloc[-1, 1]
 temp_last_3_avg_2 = str(temp_last_3_avg)
-Humid_last_3_avg = df.iloc[-1, 2]
+Humid_last_3_avg = df3.iloc[-1, 2]
 Humid_last_3_avg_2 = str(Humid_last_3_avg)
 st.title("Last 3 days average:")
 
@@ -63,9 +63,9 @@ average = df.tail(7)
 average.drop(columns=average.columns[0], axis=1, inplace=True)
 df2 = average.mean(axis=0)
 st.title("Last 7 days average:")
-temp_last_7_avg = df.iloc[-1, 1]
+temp_last_7_avg = df2.iloc[-1, 1]
 temp_last_7_avg_2 = str(temp_last_7_avg)
-Humid_last_7_avg = df.iloc[-1, 2]
+Humid_last_7_avg = df2.iloc[-1, 2]
 Humid_last_7_avg_2 = str(Humid_last_7_avg)
 
 # Viewing last 7 days average
