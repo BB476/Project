@@ -46,32 +46,43 @@ if temp22 > 45 or humid22 > 60:
 average3 = df.tail(3)
 average3.drop(columns=average3.columns[0], axis=1, inplace=True)
 df3 = average3.mean(axis=0)
-temp_last_3_avg = df3.iat[0, 0]
-temp_last_3_avg_2 = str(temp_last_3_avg)
-Humid_last_3_avg = df3.iloc[-1, 2]
-Humid_last_3_avg_2 = str(Humid_last_3_avg)
-st.title("Last 3 days average:")
+# -----
+df32 = df3.drop('Humidity(%)')
+temp_last_3_avg = df32.tail(1)
+temp_last_3_avg = float(temp_last_3_avg)
+temp_last_3_avg = str(temp_last_3_avg)
+# -----
+humid_last_3_avg = df3.tail(1)
+humid_last_3_avg = float(humid_last_3_avg)
+humid_last_3_avg = str(humid_last_3_avg)
 
 # Viewing last 3 days average
+st.title("Last 3 days average:")
 col111, col222 = st.columns(2)
-col111.metric(label="Temperature", value= temp_last_3_avg_2 + "°C")
-col222.metric(label= "Humidity", value= Humid_last_3_avg_2 + "%")
+col111.metric(label="Temperature", value= temp_last_3_avg + "°C" )
+col222.metric(label= "Humidity", value= humid_last_3_avg + "%")
 
 
 # last 7 days average
-average = df.tail(7)
-average.drop(columns=average.columns[0], axis=1, inplace=True)
-df2 = average.mean(axis=0)
-st.title("Last 7 days average:")
-temp_last_7_avg = df2.iloc[-1, 1]
-temp_last_7_avg_2 = str(temp_last_7_avg)
-Humid_last_7_avg = df2.iloc[-1, 2]
-Humid_last_7_avg_2 = str(Humid_last_7_avg)
+average3 = df.tail(7)
+average3.drop(columns=average3.columns[0], axis=1, inplace=True)
+df7 = average3.mean(axis=0)
+# -----
+df72 = df3.drop('Humidity(%)')
+temp_last_7_avg = df72.tail(1)
+temp_last_7_avg = float(temp_last_7_avg)
+temp_last_7_avg = str(temp_last_7_avg)
+# -----
+humid_last_7_avg = df7.tail(1)
+humid_last_7_avg = float(humid_last_7_avg)
+humid_last_7_avg = round(humid_last_7_avg, 1)
+humid_last_7_avg = str(humid_last_7_avg)
 
 # Viewing last 7 days average
+st.title("Last 7 days average:")
 col1111, col2222 = st.columns(2)
-col1111.metric(label="Temperature", value= temp_last_3_avg_2 + "°C")
-col2222.metric(label= "Humidity", value= Humid_last_3_avg_2 + "%")
+col1111.metric(label="Temperature", value= temp_last_7_avg + "°C")
+col2222.metric(label= "Humidity", value= humid_last_7_avg + "%")
 
 # reload button
 col4, col5, col6 = st.columns(3)
