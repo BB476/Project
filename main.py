@@ -1,5 +1,4 @@
 import streamlit as st
-import requests
 from streamlit_lottie import st_lottie
 import json
 
@@ -8,10 +7,10 @@ st.set_page_config(
     page_icon="🏠",
     layout="centered",
 )
-st.title("Analyzing the impacts of climate change on the endangered species *Hypericum Sinaicum*")
+st.title("Analyzing the impacts of climate change on the endangered species *Silene Schimperiana* in the St. Catherine region in Sinai")
 st.caption("V. 1.0")
 st.markdown("This project was created by group 17318, Ismailia STEM, for the school year 2022/2023.")
-st.markdown("This project aims to help in reducing the effects of climate change and saving endangered plants that are endemic to Sinai, such as the *Hypericum Sinaicum* species.")
+st.markdown("This project aims to help in reducing the effects of climate change and saving endangered plants that are endemic to Sinai, such as the *Silene Schimperiana* species and many others.")
 
 st.text("Use the sidebar to navigate")
 
