@@ -46,7 +46,7 @@ if temp22 > 45 or humid22 > 60:
 average3 = df.tail(3)
 average3.drop(columns=average3.columns[0], axis=1, inplace=True)
 df3 = average3.mean(axis=0)
-temp_last_3_avg = df3.iloc[1, 1]
+temp_last_3_avg = df3.iloc(axis=0)[1, 1]
 temp_last_3_avg_2 = str(temp_last_3_avg)
 Humid_last_3_avg = df3.iloc[-1, 2]
 Humid_last_3_avg_2 = str(Humid_last_3_avg)
