@@ -54,6 +54,7 @@ temp_last_3_avg = str(temp_last_3_avg)
 # -----
 humid_last_3_avg = df3.tail(1)
 humid_last_3_avg = float(humid_last_3_avg)
+humid_last_7_avg = round(humid_last_3_avg, 1)
 humid_last_3_avg = str(humid_last_3_avg)
 
 # Viewing last 3 days average
