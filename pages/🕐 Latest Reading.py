@@ -39,7 +39,7 @@ col22.metric(label= "Humidity", value= Humid_last2 + "%")
 # warning for high temp and humidity
 temp22 = int(temp_last)
 humid22 = int(Humid_last)
-if temp22 > 45 or humid22 > 60:
+if temp22 > 25 or humid22 > 60:
  st.error("Temperature and Humidty levels might be harmfull to Hypericum Sinaicum")
    
 # last 3 days average
