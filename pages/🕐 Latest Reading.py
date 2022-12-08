@@ -109,7 +109,7 @@ dfs7 = round(dfs7, 1)
 dfs7 = str(dfs7)
 
 #Viewing last 7 days average 
-st.title('Last 3 days average')
+st.title('Last 7 days average')
 col111, col222, col333 = st.columns(3)
 col111.metric(label="Temperature", value= dft3 + "°C")
 col222.metric(label= "Humidity", value= dfh3 + "%")
