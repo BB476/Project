@@ -78,13 +78,6 @@ dfs3 = dfs3.iloc[0]
 dfs3 = round(dfs3, 1)
 dfs3 = str(dfs3)
 
-#Viewing last 3 days average 
-st.title('Last 3 days average')
-col111, col222, col333 = st.columns(3)
-col111.metric(label="Temperature", value= dft3 + "°C")
-col222.metric(label= "Humidity", value= dfh3 + "%")
-col333.metric(label= "Soil Moisture", value= dfs3 + " PPM")
-
 # -----------------------------------------------------------------
 
 #  last 7 days average temperature
@@ -108,13 +101,21 @@ dfs7 = dfs7.iloc[0]
 dfs7 = round(dfs7, 1)
 dfs7 = str(dfs7)
 
-#Viewing last 7 days average 
-st.title('Last 7 days average')
-col111, col222, col333 = st.columns(3)
-col111.metric(label="Temperature", value= dft3 + "°C")
-col222.metric(label= "Humidity", value= dfh3 + "%")
-col333.metric(label= "Soil Moisture", value= dfs3 + " PPM")
+#Viewing last 3 and 7 days average 
+Choice = st.selectbox("Choose Species", ["Last 3 Days", "Last 7 Days"], index = 0 ) 
+if Choice == 'Last 7 Days' :
+ st.title('Last 7 days average')
+ col111, col222, col333 = st.columns(3)
+ col111.metric(label="Temperature", value= dft3 + "°C")
+ col222.metric(label= "Humidity", value= dfh3 + "%")
+ col333.metric(label= "Soil Moisture", value= dfs3 + " PPM")
 
+if Choice == 'Last 3 Days':
+ st.title('Last 3 days average')
+ col111, col222, col333 = st.columns(3)
+ col111.metric(label="Temperature", value= dft3 + "°C")
+ col222.metric(label= "Humidity", value= dfh3 + "%")
+ col333.metric(label= "Soil Moisture", value= dfs3 + " PPM")
 #-----------------------------------------------------------------------------------
 
 # reload button
