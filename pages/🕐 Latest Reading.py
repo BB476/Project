@@ -102,7 +102,7 @@ dfs7 = round(dfs7, 1)
 dfs7 = str(dfs7)
 
 #Viewing last 3 and 7 days average 
-Choice = st.selectbox("Choose Species", ["Last 3 Days", "Last 7 Days"], index = 0 ) 
+Choice = st.selectbox("Choose Time Period", ["Last 3 Days", "Last 7 Days"], index = 0 ) 
 if Choice == 'Last 7 Days' :
  st.title('Last 7 days average')
  col111, col222, col333 = st.columns(3)
